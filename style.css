@@ -32,6 +32,7 @@ input[type="date"] {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .service-item {
@@ -66,4 +67,25 @@ input[type="date"] {
 
 .receipt {
     /* Styles for the generated receipt will be added here via JS */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .service-item {
+        flex-direction: column;
+    }
 }
