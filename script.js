@@ -26,9 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const companyCountry = document.getElementById('company-country').value;
 
         const clientName = document.getElementById('client-name').value;
-        const clientAddress = document.getElementById('client-address').value;
-        const clientCity = document.getElementById('client-city').value;
-        const clientCountry = document.getElementById('client-country').value;
 
         const receiptId = document.getElementById('receipt-id').value;
         const issueDate = document.getElementById('issue-date').value;
@@ -126,9 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="client-details">
                     <h3>Bill To:</h3>
                     <p>${clientName}</p>
-                    <p>${clientAddress}</p>
-                    <p>${clientCity}</p>
-                    <p>${clientCountry}</p>
                 </div>
                 <div class="receipt-body">
                     <table>
