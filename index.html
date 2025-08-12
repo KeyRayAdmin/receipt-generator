@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VPS Receipt Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 10px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    label {
+        font-weight: bold;
+    }
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .receipt {
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        padding: 20px;
+        background: #fafafa;
+    }
+    .btn {
+        padding: 10px 15px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 5px 0;
+    }
+    .btn:hover {
+        background: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>VPS Receipt Generator</h1>
+
+    <label>Customer Name:</label>
+    <input type="text" id="customerName" placeholder="Enter name">
+
+    <label>Email:</label>
+    <input type="email" id="customerEmail" placeholder="Enter email">
+
+    <label>VPS Plan:</label>
+    <input type="text" id="vpsPlan" placeholder="e.g. Basic Plan">
+
+    <label>CPU:</label>
+    <input type="text" id="cpu" placeholder="e.g. 2 vCPU">
+
+    <label>RAM:</label>
+    <input type="text" id="ram" placeholder="e.g. 4 GB">
+
+    <label>Storage:</label>
+    <input type="text" id="storage" placeholder="e.g. 50 GB SSD">
+
+    <label>Bandwidth:</label>
+    <input type="text" id="bandwidth" placeholder="e.g. 1 TB">
+
+    <label>Price ($):</label>
+    <input type="number" id="price" placeholder="Enter amount">
+
+    <button class="btn" onclick="generateReceipt()">Generate Receipt</button>
+    <button class="btn" onclick="window.print()">Print</button>
+
+    <div id="receiptOutput" class="receipt" style="display:none;"></div>
+</div>
+
+<script>
+function generateReceipt() {
+    const date = new Date().toLocaleDateString();
+    const name = document.getElementById("customerName").value;
+    const email = document.getElementById("customerEmail").value;
+    const plan = document.getElementById("vpsPlan").value;
+    const cpu = document.getElementById("cpu").value;
+    const ram = document.getElementById("ram").value;
+    const storage = document.getElementById("storage").value;
+    const bandwidth = document.getElementById("bandwidth").value;
+    const price = document.getElementById("price").value;
+
+    document.getElementById("receiptOutput").style.display = "block";
+    document.getElementById("receiptOutput").innerHTML = `
+        <h2>VPS Purchase Receipt</h2>
+        <p><b>Date:</b> ${date}</p>
+        <p><b>Customer:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <hr>
+        <p><b>Plan:</b> ${plan}</p>
+        <p><b>CPU:</b> ${cpu}</p>
+        <p><b>RAM:</b> ${ram}</p>
+        <p><b>Storage:</b> ${storage}</p>
+        <p><b>Bandwidth:</b> ${bandwidth}</p>
+        <p><b>Total Price:</b> $${price}</p>
+        <hr>
+        <p>Thank you for your purchase!</p>
+    `;
+}
+</script>
+
+</body>
+</html>
